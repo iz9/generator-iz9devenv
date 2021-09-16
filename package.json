@@ -1,0 +1,46 @@
+{
+  "name": "generator-iz9devenv",
+  "version": "1.0.0",
+  "description": "development setup scaffolding",
+  "files": [
+    "generators/"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "release": "standard-version",
+    "prettify": "prettier --write"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "iz9 <web.iz9.l.n@gmail.com> (https://github.com/iz9)",
+  "license": "ISC",
+  "dependencies": {
+    "yeoman-generator": "^5.4.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "13.1.0",
+    "@commitlint/config-conventional": "13.1.0",
+    "@types/yeoman-generator": "^5.2.5",
+    "chalk": "^4.1.2",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "husky": "7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "2.4.0",
+    "standard-version": "9.3.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  }
+}
