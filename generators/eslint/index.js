@@ -43,11 +43,8 @@ class EslintGenerator extends require('yeoman-generator') {
       .addPrettier()
       .addPrettierOptions()
       .make()
-    console.log('config made', config.value)
 
     // hack because yoman's this.fs runs any changes in the virtual fs and then only applies it
-    // fs.unlinkSync(configPath
-    console.log('config.toString()', config.toString())
     fs.writeFileSync(configPath, config.toString())
 
     this.spawnCommandSync('npm', ['set-script', 'prettify', 'prettier --write'])
@@ -131,39 +128,5 @@ class EslintConfig {
     return this.value.join('\n')
   }
 }
-
-// function buildNextEslintConfigToString(config){
-//   if (!config.plugins) {
-//     config.plugins = []
-//   }
-//   config.plugins.push('prettier')
-//   config.rules.indent = ['error', 2]
-//   config.extends.push('prettier')
-//
-//   config.
-// }
-//
-//
-//
-// function mutateEslintConfig(config) {
-//
-//   return config
-// }
-//
-// function nextConfigContentString(config) {
-//   const content = []
-//   config = mutateEslintConfig(config)
-//   content.push('const fs = require("fs");')
-//   content.push('const path = require("path");')
-//   content.push(`const prettierOptions = JSON.parse(
-//     fs.readFileSync(path.resolve(__dirname, '.prettierrc'), 'utf8'),
-//   );`)
-//   content.push(`const config = ${JSON.stringify(config)};`)
-//   content.push(
-//     'config.rules["prettier/prettier"] = ["error", prettierOptions];',
-//   )
-//   content.push('module.exports = config')
-//   return content.join('\n')
-// }
 
 module.exports = EslintGenerator
